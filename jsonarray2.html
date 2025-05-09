@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         var student=[
+             {rno:1,name:"Ajay",english:78,maths:85,science:67},
+             {rno:2,name:"Vijay",english:18,maths:25,science:37},
+             {rno:3,name:"Jay",english:68,maths:55,science:66},
+             {rno:4,name:"Sanjay",english:28,maths:35,science:17},
+             {rno:5,name:"Sujay",english:88,maths:75,science:77},
+             {rno:6,name:"Amay",english:88,maths:75,science:77}
+                    ];
+               function Display(){
+                  var i;
+                  var data="";
+                  var totalstudent=0;
+                  var totalpass=0;
+                  var totalfail=0;
+                  var result="";
+                  for(i=0;i<student.length;i++){
+                    totalstudent++;
+                      var d=student[i];
+                      var total=d.english+d.maths+d.science;
+                      var per=(total/3).toFixed(2);
+                      var grade="";
+                      var col="";
+                      if(per>=35){
+                        grade="pass";
+                        col="green";
+                          totalpass++;
+                      }
+                      else{
+                        grade="fail";
+                        col="red";
+                        totalfail++;
+                      }
+                    data+="<tr style='color:"+col+"'><td>"+d.rno+"</td><td>"+d.name+"</td><td>"+d.english+"</td><td>"+d.maths+"</td><td>"+d.science+"</td><td>"+total+"</td><td>"+per+"</td><td>"+grade+"</td></tr>"
+                  };
+                  document.getElementById("tbldata").innerHTML=data;
+                  result+="<h2>Total Student="+totalstudent+"</h2>";
+                  result+="<h2>Total Pass="+totalpass+"</h2>";
+                  result+="<h2>Total fail="+totalfail+"</h2>";
+           document.getElementById("dv").innerHTML=result;
+               }; 
+               function Filterdata(){
+                var f=document.getElementById("txtfilter").value;
+                var i;
+                  var data="";
+                  var totalstudent=0;
+                  var totalpass=0;
+                  var totalfail=0;
+                  var result="";
+                  for(i=0;i<student.length;i++){
+                    totalstudent++;
+                      var d=student[i];
+                      var total=d.english+d.maths+d.science;
+                      var per=(total/3).toFixed(2);
+                      var grade="";
+                      var col="";
+                      if(per>=35){
+                        grade="pass";
+                        col="green";
+               
+                          
+    </script>
+</head>
+<body onload="Display()">
+    <table border="1">
+       <thead>
+        <tr>
+            <th>Roll no</th>
+            <th>Name
+                <input type="text" id="txtfilter" placeholder="serch by name" onkeyup="Filterdata()"/>
+            </th>
+            <th>English</th>
+            <th>Maths</th>
+            <th>Science</th>
+            <th>Total</th>
+            <th>Percentage</th>
+            <th>Grade</th>
+        </tr>
+       </thead>
+       <tbody id="tbldata"></tbody>
+    </table>
+    <hr/>
+    <h1>Summery</h1>
+  <div id="dv"></div>
+</body>
+</html>

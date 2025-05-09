@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var city=[];
+        function Addcity(){
+            var c=document.getElementById("txtcity").value;
+            var i=city.indexOf(c.toUpperCase());
+            //alert(i);
+            if(i==-1){
+            city.push(c.toUpperCase());
+            alert("City Added succesfully!!");
+            }
+            else{
+                alert("city alredy exists!!");
+            }
+            document.getElementById("txtcity").value="";
+            DisplayCity();
+        };
+        function DisplayCity(){
+            var i;
+            var data="";
+            for(i=0;i<city.length;i++){
+                data+="<li>"+city[i]+"<input type='button' value='X' onclick='DeleteCity("+i+")'/>"+"</li>";
+            }
+            document.getElementById("dv").innerHTML=data;
+        };
+        function DeleteCity(i){
+          city.splice(i,1);
+          alert("city deleted succesfully!!");
+          DisplayCity();
+        }
+    </script>
+</head>
+<body>
+    Enter city<input type="text" id="txtcity"/><br/><br/>
+    <input type="button" value="Add" onclick="Addcity()"/>
+    <hr/>
+    <ul id="dv"></ul>
+</body>
+</html>

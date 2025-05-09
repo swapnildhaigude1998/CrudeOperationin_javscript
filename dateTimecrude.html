@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        var contruction=[];
+        function Calculate(){
+            var sdt=document.getElementById("txtstart").value;
+            var edt=document.getElementById("txtend").value;
+            var sd=new Date("04 09 24 "+sdt);
+            var ed=new Date("04 09 24 "+edt);
+            var rest=Number(document.getElementById("txtrest").value);
+            var rate=Number(document.getElementById("txtrate").value);
+            var time=((ed-sd)/1000)/60;
+            time=time-rest;
+            var h=Math.floor(time/60);
+            var m=time%60;
+            document.getElementById("txttotal").value=h+":"+m;
+            var rh=(time*(rate/60)).toFixed(2);
+            document.getElementById("txtamt").value=rh;
+        };
+       
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+<marquee  bgcolor="yellow"> welcome to my website</marquee>
+  
+    <div class="col-md-6">
+     
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+               <h2>Construction </h2>
+            </div>
+            <div class="panel-body">
+             
+                <div class="form-group col-md-4">
+                    <label>Customer Id</label>
+                    <input type="text" id="txtid" class="form-control"/>
+                   </div>
+                   <div class="form-group col-md-4">
+                    <label>Customer Name</label>
+                    <input type="text" id="txtname" class="form-control"/>
+                   </div>
+                   <div class="form-group col-md-4">
+                    <label>Date</label>
+                    <input type="date" id="txtdate" class="form-control"/>
+                   </div>
+              <div class="col-md-12">
+               <div class="form-group col-md-4">
+                <label>Village Name</label>
+                <input type="text" id="txtvil" class="form-control"/>
+               </div>
+               <div class="form-group col-md-4">
+                <label>Vicheical name</label>
+                <input type="text" id="txtvih" class="form-control"/>
+               </div>
+               <div class=" col-md-4">
+
+               </div>
+            </div>
+               <div class="form-group col-md-4">
+                <label>Start Time</label>
+                <input type="time" id="txtstart" class="form-control" onchange="Calculate()"/>
+               </div>
+              
+               <div class="form-group col-md-4">
+                <label>End Time</label>
+                <input type="time" id="txtend" class="form-control" onchange="Calculate()"/>
+               </div>
+
+               <div class="form-group col-md-4">
+                <label>Total Time</label>
+                <input type="text" id="txttotal" disabled class="form-control"/>
+               </div>
+               <div class="form-group col-md-4">
+                <label>Rest Time(min)</label>
+                <input type="text" id="txtrest" class="form-control" onchange="Calculate()"/>
+               </div>
+               <div class="form-group col-md-4">
+                <label>Rate</label>
+                <input type="text" id="txtrate" class="form-control" onchange="Calculate()"/>
+               </div>
+               <div class="form-group col-md-4">
+                <label>Total Amount</label>
+                <input type="text" id="txtamt" disabled class="form-control"/>
+               </div>
+            </div>
+            <div class="panel-footer">
+                 <button class="btn btn-success" onclick="AddInvoice">Add</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+<table class="table table-bordered table-hover table-striped">
+ <thead>
+    <tr>
+        <th>Customer ID</th>
+        <th>Customer Name</th>
+        <th>Date</th>
+        <th>Vilage Name</th>
+        <th>Viechavl name</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Total time</th>
+        <th>Rest Time</th>
+        <th>Rate</th>
+        <th>Total Amount</th>
+    </tr>
+ </thead>
+ <tbody id="tbldata"></tbody>
+</table>
+    </div>
+</div>
+</body>
+</html>

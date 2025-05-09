@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Addition(){
+            var a=Number(document.getElementById("txt1").value);
+            var b=Number( document.getElementById("txt2").value);
+            var c=a+b;
+            document.getElementById("dv").innerHTML="<h1>Addition="+c+"</h1>";
+        };
+        function Substraction(){
+            var a=Number(document.getElementById("txt1").value);
+            var b=Number( document.getElementById("txt2").value);
+            var c=a-b;
+            document.getElementById("dv1").innerHTML="<h1>Sub="+c+"</h1>";
+        }
+        function Multiplication(){
+            var a=Number(document.getElementById("txt1").value);
+            var b=Number( document.getElementById("txt2").value);
+            var c=a*b;
+            document.getElementById("dv2").innerHTML="<h1>Mul="+c+"</h1>";
+        }
+        function Division(){
+            var a=Number(document.getElementById("txt1").value);
+            var b=Number( document.getElementById("txt2").value);
+            var c=a/b;
+            document.getElementById("dv3").innerHTML="<h1>Dividation="+c+"</h1>";
+        }
+    </script>
+</head>
+<body>
+    Enter Num 1<input type="text" id="txt1"/><br/><br/>
+    Enter Num 2<input type="text" id="txt2"/><br/><br/>
+    <input type="button" value="Add" onclick="Addition()"/>
+    <input type="button" value="Sub" onclick="Substraction()"/>
+    <input type="button" value="Mul" onclick="Multiplication()"/>
+    <input type="button" value="Div" onclick="Division()"/>
+    <hr/>
+    <div id="dv"></div>
+    <div id="dv1"></div>
+    <div id="dv2"></div>
+    <div id="dv3"></div>
+</body>
+</html>

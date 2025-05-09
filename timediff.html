@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Display(){
+            var sdt=document.getElementById("txtstart").value;
+            var edt=document.getElementById("txtend").value;
+            var sd=new Date("03 09 24 "+sdt);
+            var ed=new Date("03 09 24 "+edt);
+            var rest=Number(document.getElementById("txtrest").value);
+            var rate=Number(document.getElementById("txtrate").value);
+            var time= ((ed-sd)/1000)/60;
+            time=time-rest;
+            var h=Math.floor(time/60);
+            var m=time%60;
+            var amount=(time*(rate/60)).toFixed(2);
+             document.getElementById("dv").innerHTML="total duration="+h+":"+m;
+             document.getElementById("amt").innerHTML="total amount="+amount;
+
+        }
+    </script>
+</head>
+<body>
+    Start date<input type="time" id="txtstart"/><br/><br/>
+    End Date<input type="time" id="txtend"/><br/><br/>
+    Rest Time(Min)<input type="text" id="txtrest"/><br/><br/>
+    Rate<input type="text" id="txtrate"/><br/>
+    <input type="button" value="Show" onclick="Display()"/>
+    <hr/>
+    <div id="dv"></div>
+    <div id="amt"></div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var Name=["Ajay","Sujay","Jay","Vijay","Sanjay"];
+        function Display(){
+            var i;
+            var data="";
+            for(i=0;i<Name.length;i++){
+              data+="<li>"+Name[i]+"</li>";
+            }
+            document.getElementById("dv").innerHTML=data;
+        }
+    </script>
+</head>
+<body onload="Display()">
+    <ul id="dv"></ul>
+</body>
+</html>

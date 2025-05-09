@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Validate(){
+            var status=true;
+            var id=document.forms["Emp"]["txtid"].value;
+            var ename=document.forms["Emp"]["txtname"].value;
+            var sal=document.forms["Emp"]["txtsal"].value;
+            var mob=document.forms["Emp"]["txtmob"].value;
+            var email=document.forms["Emp"]["txtmail"].value;
+            var pass=document.forms["Emp"]["txtpass"].value;
+            var idpat=/^[0-9]+$/;
+            var namepat=/^[A-Z a-z]+$/;
+            if(id==""){
+                document.getElementById("spid").innerHTML="please enter your employee id";
+                status=false;
+            }
+            else if(!id.match(idpat)){
+                status=false;
+                document.getElementById("spid").innerHTML="please enter valid employee id";
+            }
+            else{
+               
+                document.getElementById("spid").innerHTML=" ";
+            }
+
+
+
+
+            if(ename==""){
+                document.getElementById("spname").innerHTML="please enter your employee name";
+                status=false;
+            }
+            else if(!ename.match(namepat)){
+                status=false;
+                document.getElementById("spname").innerHTML="please enter  valid  employee name";
+            }
+            else{
+                document.getElementById("spname").innerHTML=" ";
+            }
+
+
+            if(sal==""){
+                document.getElementById("spsal").innerHTML="enter your salary"
+                status=false;
+            }
+            else{
+                document.getElementById("spsal").innerHTML="";
+            }
+
+
+            if(mob==""){
+                document.getElementById("spmob").innerHTML="please eneter mbile number";
+                status=false;
+            }
+             else{
+                document.getElementById("spmob").innerHTML="";
+             }
+
+            if(email==""){
+                document.getElementById("spemail").innerHTML="please enter email";
+                status=false;
+            }
+            else{
+                document.getElementById("spemail").innerHTML="";
+            }
+
+            if(pass==""){
+                document.getElementById("sppass").innerHTML="please enter your email";
+                status=false;
+            }
+            else{
+                document.getElementById("sppass").innerHTML="";
+            }
+            return status;
+
+        }
+    </script>
+</head>
+<body>
+    <form name="Emp" action="Dashboard.html" method="get" onsubmit="return Validate()">
+      
+        <table>
+            <tr>
+                <td>Employee ID</td>
+                <td><input type="text" name="txtid"/></td>
+                <td><span style="color: red;" id="spid"></span></td>
+            </tr>
+            <tr>
+                <td>Employee Name</td>
+                <td><input type="text" name="txtname"/></td>
+                <td><span style="color: red;" id="spname"></span></td>
+            </tr>
+            <tr>
+                <td>Salary</td>
+                <td><input type="text" name="txtsal"/></td>
+                <td><span style="color: red;" id="spsal"></span></td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td><input type="text" name="txtmob"/></td>
+                <td><span style="color: red;" id="spmob"></span></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="txtmail"/></td>
+                <td><span style="color: red;" id="spemail"></span></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="text" name="txtpass"/></td>
+                <td><span style="color: red;" id="sppass"></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="submit"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

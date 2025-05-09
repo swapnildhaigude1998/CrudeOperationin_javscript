@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script>
+        var n=15;
+        if(n%2==0){
+            document.write("<h1>This is a even no");
+        }
+        else{
+            document.write("<h1>This is a odd no");
+        }
+    </script> -->
+    <script>
+        function Display(){
+            var n=Number(document.getElementById("txt1").value);
+            if(n%2==0){
+            document.getElementById("dv").innerHTML="<h1>This is a even no</h1>";
+        }
+        else{
+            document.getElementById("dv").innerHTML="<h1>This is a odd no</h1>";
+        }
+        }
+    </script>
+
+</head>
+<body>
+    enter Any no<input type="text" id="txt1" /><br/><br/>
+    <input type="button" value="Check" onclick="Display()"/>
+    <hr/>
+    <div id="dv"></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Display(){
+            var n=Number(document.getElementById("txtnum").value);
+            var temp=n;
+            var rem=0;
+            var sum=0;
+            while(n!=0){
+                rem=n%10;
+                sum=rem*rem*rem+sum;
+                n=Math.floor(n/10);
+            }
+            if(temp==sum){
+                document.getElementById("dv").innerHTML="<h2>this is armstrong number</h1>";
+            }
+            else{
+                document.getElementById("dv").innerHTML="<h2>this is not armstrong number</h1>";
+            }
+        }
+    </script>
+</head>
+<body>
+    Enter No <input type="text" id="txtnum"/><br/><br/>
+    <input type="button" value="check" onclick="Display()"/>
+    <hr/>
+    <div id="dv"></div>
+</body>
+</html>

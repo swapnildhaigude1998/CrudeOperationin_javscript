@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Display(){
+            var r=document.getElementById("txtrno").value;
+            var n=document.getElementById("txtname").value;
+            var e=Number(document.getElementById("txteng").value);
+            var m=Number(document.getElementById("txtmat").value);
+            var s=Number(document.getElementById("txtsci").value);
+            var t=e+m+s;
+            var p=(t/3).toFixed(3);
+            var g="";var col="";
+            if(p>=35){
+                g="pass";
+                col="green";
+            }
+            else{
+                g="fail";
+                col="red";
+            }
+            var data="";
+
+            data+="<h1>Roll no="+r+"</h1>";//data=data+
+            data+="<h1>Name="+n+"</h1>";
+            data+="<h1>English="+e+"</h1>";
+            data+="<h1>Maths="+m+"</h1>";
+            data+="<h1>Science="+s+"</h1>";
+            data+="<h1>Total="+t+"</h1>";
+            data+="<h1>Percnetage="+p+"</h1>";
+            data+="<h1>Grade="+g+"</h1>";
+            document.getElementById("dv").innerHTML=data;
+            document.getElementById("dv").style.color=col;
+            // document.getElementById("dv").innerHTML="<h1>Roll no="+r+"</h1>";
+            // document.getElementById("dv").innerHTML="<h1>Name="+n+"</h1>";
+            // document.getElementById("dv").innerHTML="<h1>English="+e+"</h1>";
+            // document.getElementById("dv").innerHTML="<h1>Maths="+m+"</h1>";
+            // document.getElementById("dv").innerHTML="<h1>Science="+s+"</h1>";
+            // document.getElementById("dv").innerHTML="<h1>Total="+t+"</h1>";
+            // document.getElementById("dv").innerHTML="<h1>Percnetage="+p+"</h1>";
+            // document.getElementById("dv").innerHTML="<h1>Grade="+g+"</h1>"
+        };
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Roll no</td>
+            <td><input type="text" id="txtrno"/></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="txtname"/></td>
+        </tr>
+        <tr>
+            <td>English</td>
+            <td><input type="text" id="txteng"/></td>
+        </tr>
+        <tr>
+            <td>Maths</td>
+            <td><input type="text" id="txtmat"/></td>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td><input type="text" id="txtsci"/></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="Calculate" onclick="Display()"/></td>
+        </tr>
+    </table>
+    <hr/>
+    <div id="dv"></div>
+    <!-- <div id="dv1"></div>
+    <div id="dv2"></div>
+    <div id="dv3"></div>
+    <div id="dv4"></div>
+    <div id="dv5"></div>
+    <div id="dv6"></div>
+    <div id="dv7"></div> -->
+</body>
+</html>

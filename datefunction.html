@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Display(){
+            var dt=new Date();
+            document.getElementById("msg").innerHTML=dt.toString();
+            document.getElementById("msg2").innerHTML=dt.toDateString();
+            document.getElementById("msg3").innerHTML=dt.toTimeString();
+            document.getElementById("msg4").innerHTML=dt.toLocaleDateString();
+            document.getElementById("msg5").innerHTML=dt.toLocaleTimeString();
+            document.getElementById("msg6").innerHTML=dt.getFullYear()+" "+dt.getYear();
+            document.getElementById("msg7").innerHTML=dt.getDay()+"  "+dt.getDate();
+            document.getElementById("msg8").innerHTML=dt.getMonth()+1+" "+dt.getHours()+"  "+dt.getMinutes()+"  "+dt.getSeconds();
+            document.getElementById("msg9").innerHTML=dt.getVarDate();
+        }
+    </script>
+</head>
+<body onload="Display()">
+    
+<h1 id="msg"></h1>
+<h1 id="msg2"></h1>
+<h1 id="msg3"></h1>
+<h1 id="msg4"></h1>
+<h1 id="msg5"></h1>
+<h1 id="msg6"></h1>
+<h1 id="msg7"></h1>
+<h1 id="msg8"></h1>
+<h1 id="msg9"></h1>
+</body>
+</html>

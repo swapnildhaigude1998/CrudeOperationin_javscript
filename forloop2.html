@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Display(){
+            var s=Number(document.getElementById("txtstart").value);
+            var e=Number(document.getElementById("txtend").value);
+            var i;
+            var data="";
+            var sum=0;
+            for(i=s;i<=e;i++){
+                sum=sum+i;
+               if(i%2==0){
+                data=data+"<h1 style='color:green'>"+i+"</h1>";
+               }
+               else{
+                data=data+"<h1 style='color:red'>"+i+"</h1>";
+               }
+               
+            }
+            data=data+"<h1>total sum ="+sum+"</h1>";
+            document.getElementById("dv").innerHTML=data;
+        }
+    </script>
+</head>
+<body>
+    Enter start value<input type="text" id="txtstart"/><br/><br/>
+    Enter End value<input type="text" id="txtend"/><br/><br/>
+    <input type="button" value="show" onclick="Display()"/>
+    <hr/>
+    <div id="dv"></div>
+</body>
+</html>

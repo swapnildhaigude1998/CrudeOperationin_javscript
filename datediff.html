@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Display(){
+            var sdt=document.getElementById("txtstart").value;
+            var edt=document.getElementById("txtend").value;
+            var sd=new Date(sdt);
+            var ed=new Date(edt);
+            var time=((((((ed-sd)/1000)/60)/60)/24)/365).toFixed(0);
+            document.getElementById("dv").innerHTML="Total days="+time;
+        }
+    </script>
+</head>
+<body>
+    Start date<input type="date" id="txtstart"/><br/><br/>
+    End Date<input type="date" id="txtend"/><br/><br/>
+    <input type="button" value="Show" onclick="Display()"/>
+    <hr/>
+    <div id="dv"></div>
+</body>
+</html>

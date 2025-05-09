@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var student=[];
+        var index=-1;
+        function Addstudent(){
+            var r=document.getElementById("txtrno").value;
+            var n=document.getElementById("txtname").value;
+            var e=Number(document.getElementById("txteng").value);
+            var m=Number(document.getElementById("txtmat").value);
+            var s=Number(document.getElementById("txtsci").value);
+            var st={"rno":r,"name":n,"english":e,"maths":m,"science":s};
+            student.push(st);
+            alert("student added succsfully!!");
+            clear();
+            Display();
+        };
+        function clear(){
+            document.getElementById("txtrno").value="";
+            document.getElementById("txtname").value="";
+            document.getElementById("txteng").value="";
+            document.getElementById("txtmat").value="";
+            document.getElementById("txtsci").value="";
+        };
+        function Display(){
+                  var i;
+                  var data="";
+                  var totalstudent=0;
+                  var totalpass=0;
+                  var totalfail=0;
+                  var result="";
+                  for(i=0;i<student.length;i++){
+                    totalstudent++;
+                      var d=student[i];
+                      var total=d.english+d.maths+d.science;
+                      var per=(total/3).toFixed(2);
+                      var grade="";
+                      var col="";
+                      if(per>=35){
+                        grade="pass";
+                        col="green";
+                          totalpass++;
+                      }
+                      else{
+                        grade="fail";
+                        col="red";
+                        totalfail++;
+                      }
+                    data+="<tr style='color:"+col+"'><td>"+d.rno+"</td><td>"+d.name+"</td><td>"+d.english+"</td><td>"+d.maths+"</td><td>"+d.science+"</td><td>"+total+"</td><td>"+per+"</td><td>"+grade+"</td><td>"+"<input type='button' value='View' onclick='ViewStudent("+i+")'/>"+"<input type='button' value='delete' onclick='DeleteStudent("+i+")'/>"+"</td></tr>"
+                  };
+                  document.getElementById("tbldata").innerHTML=data;
+                  result+="<h2>Total Student="+totalstudent+"</h2>";
+                  result+="<h2>Total Pass="+totalpass+"</h2>";
+                  result+="<h2>Total fail="+totalfail+"</h2>";
+           document.getElementById("dv").innerHTML=result;
+               }; 
+
+               function ViewStudent(l){
+                  index=l;
+                  var st=student[index];
+                  document.getElementById("txtrno").value=st.rno;
+            document.getElementById("txtname").value=st.name;
+            document.getElementById("txteng").value=st.english;
+            document.getElementById("txtmat").value=st.maths;
+            document.getElementById("txtsci").value=st.science;
+               };
+               function UpdateStudent(){
+                var r=document.getElementById("txtrno").value;
+            var n=document.getElementById("txtname").value;
+            var e=Number(document.getElementById("txteng").value);
+            var m=Number(document.getElementById("txtmat").value);
+            var s=Number(document.getElementById("txtsci").value);
+            var st={"rno":r,"name":n,"english":e,"maths":m,"science":s};
+            student[index]=st;
+            alert("student updated succsfully!!");
+            clear();
+            Display();
+               };
+
+               function DeleteStudent(n){
+                 student.splice(n,1);
+                 alert("student deleted succesfully!!");
+                 Display();
+               };
+               function Filterdata(){
+                var f=document.getElementById("txtfilter").value;
+                var i;
+                  var data="";
+                  var totalstudent=0;
+                  var totalpass=0;
+                  var totalfail=0;
+                  var result="";
+                  for(i=0;i<student.length;i++){
+                    totalstudent++;
+                      var d=student[i];
+                      var total=d.english+d.maths+d.science;
+                      var per=(total/3).toFixed(2);
+                      var grade="";
+                      var col="";
+                      if(per>=35){
+                        grade="pass";
+                        col="green";
+                          totalpass++;
+                      }
+                      else{
+                        grade="fail";
+                        col="red";
+                        totalfail++;
+                      }
+                      if(d.name.toLowerCase().includes(f.toLowerCase())){
+                    data+="<tr style='color:"+col+"'><td>"+d.rno+"</td><td>"+d.name+"</td><td>"+d.english+"</td><td>"+d.maths+"</td><td>"+d.science+"</td><td>"+total+"</td><td>"+per+"</td><td>"+grade+"</td></tr>"
+                      };
+                };
+                  document.getElementById("tbldata").innerHTML=data;
+                  result+="<h2>Total Student="+totalstudent+"</h2>";
+                  result+="<h2>Total Pass="+totalpass+"</h2>";
+                  result+="<h2>Total fail="+totalfail+"</h2>";
+           document.getElementById("dv").innerHTML=result;
+               }  ;
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Roll no</td>
+            <td><input type="text" id="txtrno"/></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="txtname"/></td>
+        </tr>
+        <tr>
+            <td>English</td>
+            <td><input type="text" id="txteng"/></td>
+        </tr>
+        <tr>
+            <td>Maths</td>
+            <td><input type="text" id="txtmat"/></td>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td><input type="text" id="txtsci"/></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Add" onclick="Addstudent()"/>
+                &nbsp:
+                <input type="button" value="Update" onclick="UpdateStudent()"/>
+            </td>
+        </tr>
+    </table>
+    <hr/>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Roll no</th>
+                <th>Name
+                    <input type="text" id="txtfilter" placeholder="serch by name" onkeyup="Filterdata()"/>
+                </th>
+                <th>English</th>
+                <th>Maths</th>
+                <th>Science</th>
+                <th>Total</th>
+                <th>Percentage</th>
+                <th>Grade</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="tbldata"></tbody>
+    </table>
+    <hr/>
+    <h1>Summery</h1>
+  <div id="dv"></div>
+</body>
+</html>
